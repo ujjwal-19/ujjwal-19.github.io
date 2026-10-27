@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ujjwal Mittal · DevOps Engineer</title>
+<meta name="description" content="Ujjwal Mittal – DevOps & Platform Engineer. Kubernetes, Tekton, Helm, Ansible, Prometheus, Grafana, Azure AKS.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<style>
+:root{--bg:#0b0f17;--card:#121826cc;--line:#263042;--text:#e6edf3;--muted:#8b949e;--a1:#58a6ff;--a2:#a371f7;--green:#3fb950}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+/* animated background */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;opacity:.25;mask-image:radial-gradient(ellipse at top,#000 30%,transparent 75%)}
+.blob{position:absolute;width:480px;height:480px;border-radius:50%;filter:blur(90px);opacity:.35;animation:float 16s ease-in-out infinite}
+.b1{background:var(--a1);top:-120px;left:-100px}
+.b2{background:var(--a2);top:200px;right:-160px;animation-delay:-8s}
+@keyframes float{50%{transform:translate(60px,80px) scale(1.15)}}
+.wrap{max-width:960px;margin:0 auto;padding:56px 16px}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.avatar{width:170px;height:170px;border-radius:50%;padding:4px;background:conic-gradient(var(--a1),var(--a2),var(--green),var(--a1));animation:spin 8s linear infinite}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--bg);display:block;animation:spin 8s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tag{font-family:'JetBrains Mono',monospace;color:var(--green);font-size:14px}
+.tag .cur{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-size:clamp(2.4rem,7vw,3.8rem);font-weight:800;line-height:1.05;margin:8px 0;background:linear-gradient(90deg,var(--text),var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{color:var(--muted);font-size:1.1rem}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.links a{color:var(--text);text-decoration:none;border:1px solid var(--line);background:var(--card);padding:7px 16px;border-radius:999px;font-size:14px;transition:.2s}
+.links a:hover{border-color:var(--a1);transform:translateY(-2px);box-shadow:0 6px 20px #58a6ff33}
+/* terminal */
+.term{margin-top:36px;background:#0d1117;border:1px solid var(--line);border-radius:12px;overflow:hidden;font:14px/1.7 'JetBrains Mono',monospace}
+.term .bar{padding:10px 14px;background:#161b22;display:flex;gap:7px}
+.term .bar i{width:12px;height:12px;border-radius:50%;background:#ff5f56}.term .bar i:nth-child(2){background:#ffbd2e}.term .bar i:nth-child(3){background:#27c93f}
+.term pre{padding:16px;color:#c9d1d9;min-height:150px;white-space:pre-wrap}
+.term .ok{color:var(--green)}.term .p{color:var(--a1)}
+section{margin-top:64px}
+h2{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.card{background:var(--card);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:14px;transition:.25s}
+.card:hover{border-color:#58a6ff66;transform:translateY(-3px)}
+/* stats bars */
+.chart .row{margin:14px 0}
+.chart .lbl{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.track{height:12px;background:#ffffff10;border-radius:6px;overflow:hidden;margin-top:6px}
+.fill{height:100%;border-radius:6px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.before{background:#f85149aa}.after{background:linear-gradient(90deg,var(--green),var(--a1))}
+/* pipeline svg */
+.pipe svg{width:100%;height:auto}
+.flow{stroke-dasharray:6 8;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 8px;text-align:center;font-size:13px;transition:.2s}
+.sk i{font-size:34px;display:block;margin-bottom:6px}
+.sk:hover{transform:translateY(-4px) scale(1.04);border-color:var(--a2)}
+.sk .txt{font-size:26px;display:block;margin-bottom:6px}
+/* timeline */
+.tl{border-left:2px solid var(--line);padding-left:22px;position:relative}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-31px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--a1);box-shadow:0 0 0 4px #58a6ff33}
+.meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+ul{padding-left:20px}li{margin:6px 0}
+.hl{color:var(--green);font-weight:600}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid3 .card{margin:0}
+.ico{font-size:28px;margin-bottom:8px}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:640px){.hero{grid-template-columns:1fr}.avatar{width:120px;height:120px;order:-1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div></div>
+<div class="wrap">
+
+<header class="hero">
+  <div>
+    <div class="tag">$ whoami<span class="cur">_</span></div>
+    <h1>Ujjwal Mittal</h1>
+    <p class="role">DevOps & Platform Engineer · Kubernetes · CI/CD · Observability</p>
+    <div class="links">
+      <a href="mailto:ujjwalmittal19@gmail.com">✉ Email</a>
+      <a href="https://www.linkedin.com/in/ujjwal-mittal" target="_blank" rel="noopener">in LinkedIn</a>
+      <a href="https://github.com/ujjwal-19" target="_blank" rel="noopener">⌥ GitHub</a>
+      <a href="resume.pdf">⬇ Resume</a>
+    </div>
+  </div>
+  <div class="avatar"><img src="avatar.jpg" alt="Ujjwal Mittal" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23121826%22/%3E%3Ctext x=%2250%22 y=%2262%22 font-size=%2236%22 text-anchor=%22middle%22 fill=%22%2358a6ff%22 font-family=%22sans-serif%22 font-weight=%22700%22%3EUM%3C/text%3E%3C/svg%3E'"></div>
+</header>
+
+<div class="term"><div class="bar"><i></i><i></i><i></i></div><pre id="term"></pre></div>
+
+<section class="reveal">
+  <h2>Impact</h2>
+  <div class="card chart">
+    <div class="row"><div class="lbl"><span>Odoo SaaS deploy · before</span><span>20 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
+    <div class="row"><div class="lbl"><span>Odoo SaaS deploy · after</span><span class="hl">3 min · ~85% faster</span></div><div class="track"><div class="fill after" data-w="15"></div></div></div>
+    <div class="row"><div class="lbl"><span>NiFi provisioning · before</span><span>25 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
+    <div class="row"><div class="lbl"><span>NiFi provisioning · after</span><span class="hl">7 min · ~70% faster</span></div><div class="track"><div class="fill after" data-w="28"></div></div></div>
+  </div>
+</section>
+
+<section class="reveal pipe">
+  <h2>How I ship</h2>
+  <div class="card">
+  <svg viewBox="0 0 900 140" font-family="JetBrains Mono, monospace" font-size="13">
+    <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#58a6ff"/><stop offset="1" stop-color="#a371f7"/></linearGradient></defs>
+    <g stroke="url(#g)" stroke-width="2.5" fill="none">
+      <path class="flow" d="M130 70H190"/><path class="flow" d="M310 70H370"/><path class="flow" d="M490 70H550"/><path class="flow" d="M670 70H730"/>
+    </g>
+    <g fill="#121826" stroke="#263042" stroke-width="1.5">
+      <rect x="10" y="40" width="120" height="60" rx="12"/><rect x="190" y="40" width="120" height="60" rx="12"/><rect x="370" y="40" width="120" height="60" rx="12"/><rect x="550" y="40" width="120" height="60" rx="12"/><rect x="730" y="40" width="160" height="60" rx="12" stroke="#3fb950"/>
+    </g>
+    <g fill="#e6edf3" text-anchor="middle">
+      <text x="70" y="66">git push</text><text x="70" y="86" fill="#8b949e" font-size="11">trigger</text>
+      <text x="250" y="66">Tekton</text><text x="250" y="86" fill="#8b949e" font-size="11">build · test</text>
+      <text x="430" y="66">Helm</text><text x="430" y="86" fill="#8b949e" font-size="11">templated</text>
+      <text x="610" y="66">Kubernetes</text><text x="610" y="86" fill="#8b949e" font-size="11">AKS · on-prem</text>
+      <text x="810" y="66" fill="#3fb950">Prometheus</text><text x="810" y="86" fill="#8b949e" font-size="11">+ Grafana watch</text>
+    </g>
+  </svg>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Toolbox</h2>
+  <div class="skills">
+    <div class="sk"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</div>
+    <div class="sk"><i class="devicon-docker-plain colored"></i>Docker</div>
+    <div class="sk"><i class="devicon-helm-original colored"></i>Helm</div>
+    <div class="sk"><i class="devicon-ansible-plain colored"></i>Ansible</div>
+    <div class="sk"><i class="devicon-terraform-plain colored"></i>Terraform</div>
+    <div class="sk"><i class="devicon-bash-plain"></i>Shell</div>
+    <div class="sk"><i class="devicon-prometheus-original colored"></i>Prometheus</div>
+    <div class="sk"><i class="devicon-grafana-plain colored"></i>Grafana</div>
+    <div class="sk"><i class="devicon-azure-plain colored"></i>Azure AKS</div>
+    <div class="sk"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>AWS</div>
+    <div class="sk"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</div>
+    <div class="sk"><i class="devicon-apacheairflow-plain colored"></i>Airflow</div>
+    <div class="sk"><i class="devicon-hadoop-plain colored"></i>Hadoop</div>
+    <div class="sk"><span class="txt">🔁</span>Tekton</div>
+    <div class="sk"><span class="txt">🌊</span>Apache NiFi</div>
+    <div class="sk"><i class="devicon-linux-plain"></i>Linux</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Experience</h2>
+  <div class="tl">
+  <div class="card">
+    <h3>DevOps Engineer — Ksolves India Limited</h3>
+    <p class="meta">Aug 2023 – Present · Noida</p>
+    <ul>
+      <li>Run production Kubernetes for Odoo SaaS, Apache NiFi and Hadoop.</li>
+      <li>L2/L3 support across Kubernetes, Docker, Linux and Azure AKS.</li>
+      <li>Tekton pipelines for deploys, PV provisioning, ingress and namespaces.</li>
+      <li>Reusable Helm templates to kill config drift.</li>
+      <li>Ansible + Shell automation for provisioning and routine ops.</li>
+      <li>Prometheus + Grafana dashboards for all major workloads.</li>
+      <li>Incident handling with RCAs; 50+ Docker demo environments.</li>
+    </ul>
+  </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Projects</h2>
+  <div class="grid3">
+    <div class="card"><div class="ico">🏦</div><h3>VM → AKS Migration</h3><ul><li>Financial platform, <span class="hl">zero regressions</span>.</li><li>NiFi + Airflow via Helm, Azure AD OIDC.</li><li>cert-manager TLS, Prometheus HA.</li></ul></div>
+    <div class="card"><div class="ico">🏢</div><h3>Multi-Tenant Odoo SaaS</h3><ul><li>Tekton: provision, upgrade, auto-rollback.</li><li>Tenant deploy in <span class="hl">2–3 min</span>.</li></ul></div>
+    <div class="card"><div class="ico">🌊</div><h3>Apache NiFi Automation</h3><ul><li>Standard Helm deploys.</li><li><span class="hl">25 → 7 min</span> provisioning.</li></ul></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Education & Certs</h2>
+  <div class="grid3">
+    <div class="card"><div class="ico">🎓</div><b>MCA</b><p class="meta">ABES Engineering College · 2024</p></div>
+    <div class="card"><div class="ico">📘</div><b>B.Sc</b><p class="meta">D. N. College, Meerut · 2021</p></div>
+    <div class="card"><div class="ico">🏅</div><b>In progress</b><p class="meta">CKA · AWS SAA · Terraform Associate</p></div>
+  </div>
+</section>
+
+<footer>© 2026 Ujjwal Mittal · built with ☕ · hosted on GitHub Pages</footer>
+</div>
+
+<script>
+// terminal typing
+const lines=[
+ ['p','$ kubectl get deploy -n prod'],
+ ['','odoo-saas   12/12   Running'],
+ ['','nifi        3/3     Running'],
+ ['p','$ tkn pipeline start deploy-tenant'],
+ ['ok','✔ deployed in 2m41s'],
+ ['p','$ echo "open to new roles"'],
+ ['ok','open to new roles 🚀']];
+const t=document.getElementById('term');let li=0,ci=0,span;
+function type(){if(li>=lines.length)return;
+ if(ci===0){span=document.createElement('span');span.className=lines[li][0];t.appendChild(span)}
+ span.textContent+=lines[li][1][ci++]||'';
+ if(ci>lines[li][1].length){t.appendChild(document.createTextNode('\n'));li++;ci=0;setTimeout(type,350)}
+ else setTimeout(type,lines[li][0]==='p'?40:8)}
+type();
+// reveal + bars
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
