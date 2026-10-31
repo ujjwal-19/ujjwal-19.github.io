@@ -6,7 +6,6 @@
 <title>Ujjwal Mittal · DevOps Engineer</title>
 <meta name="description" content="Ujjwal Mittal – DevOps & Platform Engineer. Kubernetes, Tekton, Helm, Ansible, Prometheus, Grafana, Azure AKS.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 <style>
 :root{--bg:#0b0f17;--card:#121826cc;--line:#263042;--text:#e6edf3;--muted:#8b949e;--a1:#58a6ff;--a2:#a371f7;--green:#3fb950}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -30,9 +29,13 @@ body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-s
 @keyframes blink{50%{opacity:0}}
 h1{font-size:clamp(2.4rem,7vw,3.8rem);font-weight:800;line-height:1.05;margin:8px 0;background:linear-gradient(90deg,var(--text),var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .role{color:var(--muted);font-size:1.1rem}
+.sub{color:var(--muted);font-size:.95rem;margin-top:6px;font-family:'JetBrains Mono',monospace}
 .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .links a{color:var(--text);text-decoration:none;border:1px solid var(--line);background:var(--card);padding:7px 16px;border-radius:999px;font-size:14px;transition:.2s}
+.links a{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
 .links a:hover{border-color:var(--a1);transform:translateY(-2px);box-shadow:0 6px 20px #58a6ff33}
+.links a:active{transform:scale(.96);border-color:var(--a2)}
+.links a:focus-visible{outline:2px solid var(--a1);outline-offset:3px}
 /* terminal */
 .term{margin-top:36px;background:#0d1117;border:1px solid var(--line);border-radius:12px;overflow:hidden;font:14px/1.7 'JetBrains Mono',monospace}
 .term .bar{padding:10px 14px;background:#161b22;display:flex;gap:7px}
@@ -50,6 +53,22 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--li
 .track{height:12px;background:#ffffff10;border-radius:6px;overflow:hidden;margin-top:6px}
 .fill{height:100%;border-radius:6px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
 .before{background:#f85149aa}.after{background:linear-gradient(90deg,var(--green),var(--a1))}
+/* stat tiles */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 14px;text-align:center;transition:.25s}
+.stat:hover{border-color:#3fb95066;transform:translateY(-3px)}
+.stat b{display:block;font:800 2rem/1.1 Inter,sans-serif;background:linear-gradient(90deg,var(--green),var(--a1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+@media (max-width:640px){.stats{grid-template-columns:1fr 1fr}}
+/* featured operator */
+.feat{border-color:#a371f755;background:linear-gradient(135deg,#a371f714,#58a6ff0d),var(--card)}
+.feat-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.feat h3{font-size:1.4rem}
+.badge{display:inline-flex;align-items:center;gap:8px;font:500 12px 'JetBrains Mono',monospace;color:#ffbd2e;border:1px solid #ffbd2e55;background:#ffbd2e14;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%;background:#ffbd2e;animation:blink 1.4s steps(1) infinite}
+.feat code{font-family:'JetBrains Mono',monospace;color:var(--a2);font-size:.9em}
+.arch{width:100%;height:auto;margin:16px 0}
+.links a.off{opacity:.55;cursor:default;pointer-events:none}
 /* pipeline svg */
 .pipe svg{width:100%;height:auto}
 .flow{stroke-dasharray:6 8;animation:dash 1.2s linear infinite}
@@ -59,7 +78,8 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--li
 .sk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 8px;text-align:center;font-size:13px;transition:.2s}
 .sk i{font-size:34px;display:block;margin-bottom:6px}
 .sk:hover{transform:translateY(-4px) scale(1.04);border-color:var(--a2)}
-.sk .txt{font-size:26px;display:block;margin-bottom:6px}
+.sk img{width:36px;height:36px;display:block;margin:0 auto 8px;object-fit:contain}
+.sk .mono{width:36px;height:36px;margin:0 auto 8px;border-radius:10px;display:flex;align-items:center;justify-content:center;font:600 13px 'JetBrains Mono',monospace;color:var(--a1);background:#58a6ff1a;border:1px solid #58a6ff44}
 /* timeline */
 .tl{border-left:2px solid var(--line);padding-left:22px;position:relative}
 .tl .card{position:relative}
@@ -73,7 +93,7 @@ ul{padding-left:20px}li{margin:6px 0}
 .reveal{opacity:0;transform:translateY(24px);transition:.7s}
 .reveal.in{opacity:1;transform:none}
 footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
-@media (max-width:640px){.hero{grid-template-columns:1fr}.avatar{width:120px;height:120px;order:-1}}
+@media (max-width:640px){.hero{grid-template-columns:1fr;text-align:center}.avatar{width:120px;height:120px;order:-1;margin:0 auto}.links{display:grid;grid-template-columns:1fr 1fr;gap:10px}.links a{width:100%;padding:10px 12px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -85,7 +105,8 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
   <div>
     <div class="tag">$ whoami<span class="cur">_</span></div>
     <h1>Ujjwal Mittal</h1>
-    <p class="role">DevOps & Platform Engineer · Kubernetes · CI/CD · Observability</p>
+    <p class="role">DevOps & Platform Engineer · Kubernetes · CI/CD</p>
+    <p class="sub">Specialising in data platforms on Kubernetes · <span class="hl">Apache NiFi</span> · building operators in Go</p>
     <div class="links">
       <a href="mailto:ujjwalmittal19@gmail.com">✉ Email</a>
       <a href="https://www.linkedin.com/in/ujjwal-mittal" target="_blank" rel="noopener">in LinkedIn</a>
@@ -100,11 +121,74 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
 
 <section class="reveal">
   <h2>Impact</h2>
+  <div class="stats">
+    <div class="stat"><b class="num" data-to="8" data-pre="7–">7–8</b><span>production NiFi clusters</span></div>
+    <div class="stat"><b class="num" data-to="70" data-suf="%">70%</b><span>faster NiFi provisioning</span></div>
+    <div class="stat"><b class="num" data-to="85" data-suf="%">85%</b><span>faster Odoo tenant deploys</span></div>
+    <div class="stat"><b class="num" data-to="50" data-suf="+">50+</b><span>demo environments run</span></div>
+  </div>
   <div class="card chart">
     <div class="row"><div class="lbl"><span>Odoo SaaS deploy · before</span><span>20 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
     <div class="row"><div class="lbl"><span>Odoo SaaS deploy · after</span><span class="hl">3 min · ~85% faster</span></div><div class="track"><div class="fill after" data-w="15"></div></div></div>
     <div class="row"><div class="lbl"><span>NiFi provisioning · before</span><span>25 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
     <div class="row"><div class="lbl"><span>NiFi provisioning · after</span><span class="hl">7 min · ~70% faster</span></div><div class="track"><div class="fill after" data-w="28"></div></div></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Featured · Open Source</h2>
+  <div class="card feat">
+    <div class="feat-head">
+      <div>
+        <h3>NiFi Kubernetes Operator</h3>
+        <p class="meta">Go · Kubebuilder · CRDs · controller-runtime</p>
+      </div>
+      <span class="badge"><i></i>In development · v1.0.0 soon</span>
+    </div>
+    <p>A Kubernetes operator for Apache NiFi, written from scratch. Declare a <code>NiFiCluster</code> resource and the operator builds and keeps the cluster in the state you asked for.</p>
+    <svg class="arch" viewBox="0 0 930 250" font-family="JetBrains Mono, monospace" font-size="13" role="img" aria-label="Control: the NiFiCluster custom resource is watched by the operator, which creates a StatefulSet and ConfigMap, which run the NiFi pods, plus a Service. Traffic: users reach the Ingress or Gateway API, which routes to the Service, which sends traffic up to the same NiFi pods.">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#58a6ff"/></marker>
+        <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3fb950"/></marker>
+      </defs>
+      <g fill="#8b949e" font-size="11">
+        <text x="10" y="18">CONTROL · operator creates &amp; reconciles</text>
+        <text x="10" y="148">TRAFFIC · how users reach NiFi</text>
+      </g>
+      <g stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#ar)">
+        <path class="flow" d="M180 65H224"/><path class="flow" d="M430 65H474"/><path class="flow" d="M700 65H744"/>
+        <path class="flow" d="M330 100V128H590V154"/>
+      </g>
+      <g stroke="#3fb950" stroke-width="2" fill="none" marker-end="url(#ag)">
+        <path class="flow" d="M180 195H224"/><path class="flow" d="M430 195H474"/>
+        <path class="flow" d="M700 195H835V106"/>
+      </g>
+      <g fill="#121826" stroke="#263042" stroke-width="1.5">
+        <rect x="10" y="30" width="170" height="70" rx="12"/>
+        <rect x="230" y="30" width="200" height="70" rx="12" stroke="#a371f7"/>
+        <rect x="480" y="30" width="220" height="70" rx="12"/>
+        <rect x="750" y="30" width="170" height="70" rx="12" stroke="#3fb950"/>
+        <rect x="10" y="160" width="170" height="70" rx="12"/>
+        <rect x="230" y="160" width="200" height="70" rx="12"/>
+        <rect x="480" y="160" width="220" height="70" rx="12"/>
+      </g>
+      <g fill="#e6edf3" text-anchor="middle">
+        <text x="95" y="60">NiFiCluster</text><text x="95" y="80" fill="#8b949e" font-size="11">custom resource</text>
+        <text x="330" y="60" fill="#a371f7">Operator</text><text x="330" y="80" fill="#8b949e" font-size="11">Go · watch · reconcile</text>
+        <text x="590" y="60">StatefulSet</text><text x="590" y="80" fill="#8b949e" font-size="11">+ ConfigMap · TLS</text>
+        <text x="835" y="60" fill="#3fb950">NiFi pods</text><text x="835" y="80" fill="#8b949e" font-size="11">3 nodes · clustered</text>
+        <text x="95" y="190">Users</text><text x="95" y="210" fill="#8b949e" font-size="11">browser · API</text>
+        <text x="330" y="190">Ingress</text><text x="330" y="210" fill="#8b949e" font-size="11">or Gateway API</text>
+        <text x="590" y="190">Service</text><text x="590" y="210" fill="#8b949e" font-size="11">created by operator</text>
+      </g>
+    </svg>
+    <ul>
+      <li>Cluster creation and scaling from a single custom resource</li>
+      <li>Configuration and TLS managed by the operator</li>
+      <li>Day-2 operations handled by the reconcile loop</li>
+      <li>Design shaped by hands-on use of NiFiKop and Stackable</li>
+    </ul>
+    <div class="links"><a class="off" aria-disabled="true">⌥ GitHub · coming soon</a></div>
   </div>
 </section>
 
@@ -132,24 +216,7 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
 
 <section class="reveal">
   <h2>Toolbox</h2>
-  <div class="skills">
-    <div class="sk"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</div>
-    <div class="sk"><i class="devicon-docker-plain colored"></i>Docker</div>
-    <div class="sk"><i class="devicon-helm-original colored"></i>Helm</div>
-    <div class="sk"><i class="devicon-ansible-plain colored"></i>Ansible</div>
-    <div class="sk"><i class="devicon-terraform-plain colored"></i>Terraform</div>
-    <div class="sk"><i class="devicon-bash-plain"></i>Shell</div>
-    <div class="sk"><i class="devicon-prometheus-original colored"></i>Prometheus</div>
-    <div class="sk"><i class="devicon-grafana-plain colored"></i>Grafana</div>
-    <div class="sk"><i class="devicon-azure-plain colored"></i>Azure AKS</div>
-    <div class="sk"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>AWS</div>
-    <div class="sk"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</div>
-    <div class="sk"><i class="devicon-apacheairflow-plain colored"></i>Airflow</div>
-    <div class="sk"><i class="devicon-hadoop-plain colored"></i>Hadoop</div>
-    <div class="sk"><span class="txt">🔁</span>Tekton</div>
-    <div class="sk"><span class="txt">🌊</span>Apache NiFi</div>
-    <div class="sk"><i class="devicon-linux-plain"></i>Linux</div>
-  </div>
+  <div class="skills" id="skills"></div>
 </section>
 
 <section class="reveal">
@@ -195,13 +262,13 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
 <script>
 // terminal typing
 const lines=[
- ['p','$ kubectl get deploy -n prod'],
- ['','odoo-saas   12/12   Running'],
- ['','nifi        3/3     Running'],
- ['p','$ tkn pipeline start deploy-tenant'],
- ['ok','✔ deployed in 2m41s'],
- ['p','$ echo "open to new roles"'],
- ['ok','open to new roles 🚀']];
+ ['p','$ tkn pipeline start deploy-odoo-tenant'],
+ ['ok','✔ odoo tenant live in 2m41s'],
+ ['p','$ kubectl get nificlusters -A'],
+ ['','prod-nifi     3/3   Running   (k8s lease)'],
+ ['','analytics     3/3   Running   (zookeeper)'],
+ ['p','$ make deploy   # nifi-operator (Go · Kubebuilder)'],
+ ['ok','✔ v1.0.0 coming soon']];
 const t=document.getElementById('term');let li=0,ci=0,span;
 function type(){if(li>=lines.length)return;
  if(ci===0){span=document.createElement('span');span.className=lines[li][0];t.appendChild(span)}
@@ -209,8 +276,33 @@ function type(){if(li>=lines.length)return;
  if(ci>lines[li][1].length){t.appendChild(document.createTextNode('\n'));li++;ci=0;setTimeout(type,350)}
  else setTimeout(type,lines[li][0]==='p'?40:8)}
 type();
+// toolbox: SVG icons with variant fallback, then a text badge
+const CDN='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/';
+const tools=[
+ ['Apache NiFi',null,'NiFi'],['Kubernetes','kubernetes'],['Docker','docker'],['Helm','helm'],
+ ['Go','go'],['Git','git'],['Jenkins','jenkins'],['GitHub Actions','githubactions'],
+ ['Tekton',null,'TK'],['Ansible','ansible'],['Terraform','terraform'],['Shell','bash'],
+ ['Prometheus','prometheus'],['Grafana','grafana'],['Azure AKS','azure'],['AWS','amazonwebservices','AWS'],
+ ['Airflow','apacheairflow'],['Hadoop','hadoop'],['PostgreSQL','postgresql'],['Linux','linux']];
+const box=document.getElementById('skills');
+tools.forEach(([name,slug,abbr])=>{
+ const d=document.createElement('div');d.className='sk';
+ const badge=()=>{const m=document.createElement('span');m.className='mono';m.textContent=abbr||name.slice(0,2);return m};
+ if(slug){
+  const img=document.createElement('img');img.alt='';img.loading='lazy';
+  const tries=['original','plain','original-wordmark','plain-wordmark'];let i=0;
+  img.onerror=()=>{if(++i<tries.length)img.src=CDN+slug+'/'+slug+'-'+tries[i]+'.svg';else img.replaceWith(badge())};
+  img.src=CDN+slug+'/'+slug+'-'+tries[0]+'.svg';d.appendChild(img);
+ }else d.appendChild(badge());
+ d.appendChild(document.createTextNode(name));box.appendChild(d);
+});
 // reveal + bars
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');io.unobserve(e.target)}}),{threshold:.15});
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function count(el){const to=+el.dataset.to,pre=el.dataset.pre||'',suf=el.dataset.suf||'';
+ if(calm)return;const t0=performance.now(),dur=1200;
+ (function step(t){const p=Math.min((t-t0)/dur,1),v=Math.round(to*(1-Math.pow(1-p,3)));
+  el.textContent=(pre&&p<1?'':pre)+v+suf;if(p<1)requestAnimationFrame(step)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');e.target.querySelectorAll('.num').forEach(count);io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
